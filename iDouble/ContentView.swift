@@ -13,6 +13,9 @@ struct ContentView: View {
             VStack {
                 Text("chris")
                     .font(.title)
+                
+                Text("Prova repository")
+                    .bold()
             }
             .padding()
             .preferredColorScheme(.dark)
