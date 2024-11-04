@@ -9,11 +9,15 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Text("chris")
-                .font(.title)
+        ZStack {
+            VStack {
+                Text("chris")
+                    .font(.title)
+            }
+            .padding()
+            .preferredColorScheme(.dark)
         }
-        .padding()
+        
     }
 }
 
