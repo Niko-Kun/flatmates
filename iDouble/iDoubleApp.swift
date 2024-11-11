@@ -11,7 +11,7 @@ import SwiftUI
 struct iDoubleApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            BoardingView()
         }
     }
 }
