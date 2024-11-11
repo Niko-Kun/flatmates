@@ -1,5 +1,5 @@
 //
-//  BoardingView.swift
+//  CreateProfileView.swift
 //  iDouble
 //
 //  Created by Nicolò Amabile on 11/11/24.
@@ -7,12 +7,13 @@
 
 import SwiftUI
 
-struct BoardingView: View {
+struct CreateProfileView: View {
+    
     var body: some View {
         Text("")
     }
 }
 
 #Preview {
-    BoardingView()
+    CreateProfileView()
 }
