@@ -24,6 +24,15 @@ struct CreateHomeView: View {
             .padding(.top, 30)
             .padding()
 
+            if(selectedTab == 0) {
+                CreateView()
+                
+            } else {
+                JoinView()
+                
+            }
+
+
             Spacer()
         }
     }
