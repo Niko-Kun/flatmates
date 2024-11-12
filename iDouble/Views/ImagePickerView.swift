@@ -11,7 +11,6 @@ import PhotosUI
 struct ImagePickerView: View {
     @State private var selectedImage: UIImage?
     @State private var isPickerPresented = false
-    @State var name : String = ""
     
     var body: some View {
         VStack {
@@ -25,14 +24,9 @@ struct ImagePickerView: View {
                         .frame(width: 200, height: 200)
                         .clipShape(Circle())
                 } else {
-                    VStack {
                         Circle()
                             .frame(width: 200, height: 200)
                             .foregroundStyle(.gray)
-                        Text("Insert an Image")
-                            .bold()
-                            .foregroundColor(.black)
-                    }
                 }
             }
             .padding()
@@ -40,25 +34,6 @@ struct ImagePickerView: View {
                 PhotoPicker(selectedImage: $selectedImage)
             }
             
-            TextField("Write your Name", text: $name)
-                .textFieldStyle(.roundedBorder)
-                .padding()
-            
-            Spacer()
-            
-            Button {
-                print("ok")
-            } label: {
-                Text("Done")
-                    .foregroundColor(.white)
-                    .padding(10)
-                    .frame(width: 100, height: 45)
-                    .background(Color.blue)
-                    .cornerRadius(10)
-            }
-            .padding(.bottom, 200)
-            
-            Spacer()
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
