@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct BoardingView: View {
-    @State private var secondView = false
+    @State private var nextView = false
     
     var body: some View {
         
@@ -45,14 +45,13 @@ struct BoardingView: View {
         }
         
         Button {
-            secondView = true
+            nextView = true
         } label: {
             Text("Get Started!")
         }
-        .fullScreenCover(isPresented: $secondView) {
+        .fullScreenCover(isPresented: $nextView) {
             CreateProfileView()
         }
-
         .bold()
         .foregroundStyle(.white)
         .font(.system(size: 24))
