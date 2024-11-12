@@ -10,8 +10,12 @@ import SwiftUI
 struct CreateJoinHouseView: View {
     var body: some View {
         VStack {
-            Text("Create or Join a House")
+            ToolbarView(title: "Create or Join a House")
+            
+            
+            
         }
+        .navigationBarHidden(true)
         .background(Color(.systemGray6))
     }
 }
