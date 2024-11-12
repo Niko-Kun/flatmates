@@ -56,7 +56,6 @@ struct CreateProfileView: View {
                 //.padding(.bottom, 200)
                 //.padding()
             }
-            .background(Color(.systemGray6))
         }
     }
 }
