@@ -9,21 +9,20 @@ import SwiftUI
 
 struct ToolbarView: View {
     @Environment(\.presentationMode) var presentationMode
-
+    
     var title : String
     var color : Color = .black
-
+    
     var dimBackButtom : CGFloat = 70
     var body: some View {
         VStack {
             headerSection
+            Divider()
         }
     }
-
-    var headerSection : some View{
-
+    
+    var headerSection : some View {
         HStack {
-
             Button(action: {
                 presentationMode.wrappedValue.dismiss()
             }) {
@@ -32,21 +31,22 @@ struct ToolbarView: View {
                     Text("Back")
                 }
                 .frame(maxWidth: dimBackButtom)
-                .foregroundStyle(color)
             }
-
+            
             Spacer()
-
+            
             Text("\(title)")
-                .font(.system(size: 20))
+                .bold()
+                .font(.system(size: 18))
                 .foregroundStyle(color)
                 .frame(maxWidth: .infinity)
-
+            
             Spacer()
             Spacer()
                 .frame(maxWidth: dimBackButtom) // Larghezza del pulsante "Back" per bilanciare
         }
         .padding( .horizontal, 10)
+        
     }
 }
 

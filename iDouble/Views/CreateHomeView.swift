@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct CreateHomeView: View {
-    
     var body: some View {
-            Text("ciao")
+        VStack {
+            ToolbarView(title: "Create a New House")
+            Spacer()
+        }
+        .navigationBarHidden(true)
     }
 }
 
