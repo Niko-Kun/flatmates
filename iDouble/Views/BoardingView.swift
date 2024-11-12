@@ -24,17 +24,15 @@ struct BoardingView: View {
                     .clipped()
             )
         
-        Text("Task Management \nMade Simple")
-            .font(
-                Font.custom("Inter", size: 24)
-                    .weight(.bold)
-            )
+        Text("Task Management\nMade Simple")
+            .font(.system(size: 24))
+            .bold()
             .multilineTextAlignment(.center)
             .foregroundColor(.black)
             .frame(width: 323, height: 59, alignment: .top)
         
         Text("Assign tasks, track progress, and get reminders to keep the household running smoothly. Every housemate will know exactly what needs to be done.")
-            .font(Font.custom("Inter", size: 15))
+            .font(Font.system(size: 14))
             .multilineTextAlignment(.center)
             .foregroundColor(.black)
             .frame(width: 335, height: 69, alignment: .top)

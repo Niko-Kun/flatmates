@@ -17,12 +17,14 @@ struct CreateProfileView: View {
                 ImagePickerView()
                 
                 Text("Insert an Image")
+                    .font(.system(size: 15))
                     .bold()
                     .foregroundColor(.black)
                     .padding(.bottom, 25)
                     .padding(.top, -30)
                 
                 TextField("Write your Name", text: $name)
+                    .font(.system(size: 15))
                     .textFieldStyle(.roundedBorder)
                     .padding(.leading, 20)
                     .padding(.trailing, 20)
@@ -30,10 +32,15 @@ struct CreateProfileView: View {
                 
                 NavigationLink(destination: {
                     
-                    CreateJoinHouseView()
+                    if(name == "") {
+                        
+                    } else {
+                        CreateJoinHouseView()
+                    }
                     
                 }, label: {
                     Text("Done")
+                        .font(.system(size: 18))
                         .foregroundColor(.white)
                         .padding(.vertical)
                         .padding(.horizontal, 50)
