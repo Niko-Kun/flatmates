@@ -44,16 +44,8 @@ struct PhotoPicker : UIViewControllerRepresentable {
                     DispatchQueue.main.async {
                         self.parent.selectedImage = image as? UIImage
                     }
-
                 }
-
             }
-
-
         }
-
-        
     }
-
 }
-

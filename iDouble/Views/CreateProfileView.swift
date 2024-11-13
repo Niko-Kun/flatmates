@@ -10,6 +10,7 @@ import SwiftUI
 
 struct CreateProfileView: View {
     @State var name : String = ""
+    @State private var showAlert: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -32,7 +33,7 @@ struct CreateProfileView: View {
                 
                 NavigationLink(destination: {
                     
-                    if(name == "") {
+                    if name.isEmpty {
                         
                     } else {
                         CreateJoinHouseView()
