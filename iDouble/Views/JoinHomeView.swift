@@ -10,7 +10,9 @@ import SwiftUI
 struct JoinHomeView: View {
     var body: some View {
         VStack {
-            ToolbarView(title: "Join an House")
+            ToolbarView(title: "Join an House", onDone: {
+                print("tapped")
+            })
             Spacer()
         }
         .navigationBarHidden(true)

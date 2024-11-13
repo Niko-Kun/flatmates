@@ -11,6 +11,9 @@ import SwiftUI
 struct CreateProfileView: View {
     @State var name : String = ""
     @State private var showAlert: Bool = false
+    var mainColor : Color  = .blue
+    var unSelectedColor : Color  = .gray
+    @State private var navigateToCreateJoinHouse: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -21,48 +24,29 @@ struct CreateProfileView: View {
                     .font(.system(size: 15))
                     .bold()
                     .foregroundColor(.black)
-                    .padding(.bottom, 25)
-                    .padding(.top, -30)
+                    .frame(width: 150, height: 30, alignment: .center)
                 
                 TextField("Write your Name", text: $name)
                     .font(.system(size: 15))
                     .textFieldStyle(.roundedBorder)
-                    .padding(.leading, 20)
-                    .padding(.trailing, 20)
                     .foregroundStyle(.black)
+                    .frame(width: 320, height: 70)
                 
-                NavigationLink(destination: {
-                    
-                    if name.isEmpty {
-                        
-                    } else {
-                        CreateJoinHouseView()
+                Button ( action : {	
+                    if !name.isEmpty {
+                        navigateToCreateJoinHouse = true
                     }
-                    
-                }, label: {
+                }) {
                     Text("Done")
                         .font(.system(size: 18))
                         .foregroundColor(.white)
-                        .padding(.vertical)
-                        .padding(.horizontal, 50)
-                        .background(Color(red: 0, green: 0.6, blue: 0.67))
+                        .frame(width: 150, height: 50)
+                        .background( Color( name.isEmpty ? unSelectedColor :  mainColor))
                         .cornerRadius(10)
-                })
-                .padding(.top, 10)
-                .padding(.bottom, 270)
+                }
                 
-                //Button {
-                //print("ok")
-                //} label: {
-                //Text("Done")
-                //.foregroundColor(.white)
-                //.padding(10)
-                //.frame(width: 100, height: 45)
-                //.background(Color.blue)
-                //.cornerRadius(10)
-                //}
-                //.padding(.bottom, 200)
-                //.padding()
+                
+                NavigationLink(destination: CreateJoinHouseView(), isActive: $navigateToCreateJoinHouse){ EmptyView()}
             }
         }
     }

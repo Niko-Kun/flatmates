@@ -14,7 +14,6 @@ struct ImagePickerView: View {
     
     var body: some View {
         VStack {
-            Spacer()
             Button(action: {
                 isPickerPresented = true
             }) {
@@ -29,14 +28,10 @@ struct ImagePickerView: View {
                             .foregroundStyle(.gray)
                 }
             }
-            .padding()
             .sheet(isPresented: $isPickerPresented) {
                 PhotoPicker(selectedImage: $selectedImage)
             }
-            
         }
-        .padding()
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 

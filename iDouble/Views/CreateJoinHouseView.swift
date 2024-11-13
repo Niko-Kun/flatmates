@@ -12,19 +12,15 @@ struct CreateJoinHouseView: View {
         NavigationStack {
             VStack {
                 ToolbarView(title: "Create or Join House")
-                Spacer()
                 
                 Rectangle()
                     .foregroundColor(.clear)
-                    .frame(width: 206, height: 225)
-                    .padding(.top, 100)
+                    .frame(width: 206, height: 400)
                     .background(
                         Image("createJoin")
-                            .frame(width: 206, height: 225)
-                            .clipped()
+                            .resizable()
+                            .frame(width: 206, height: 206)
                     )
-                
-                Spacer()
                 
                 NavigationLink(destination: {
                     
@@ -38,13 +34,10 @@ struct CreateJoinHouseView: View {
                     .font(.system(size : 15))
                     .bold()
                     .foregroundColor(.white)
-                    .padding(.vertical)
-                    .padding(.horizontal, 50)
-                    .frame(width: 300)
+                    .frame(width: 300, height: 55)
                     .background(Color(red: 0, green: 0.6, blue: 0.67))
                     .cornerRadius(10)
                 })
-                .padding(.top, 10)
                 
                 NavigationLink(destination: {
                     
@@ -58,14 +51,10 @@ struct CreateJoinHouseView: View {
                     .font(.system(size : 15))
                     .bold()
                     .foregroundColor(.white)
-                    .padding(.vertical)
-                    .padding(.horizontal, 50)
-                    .frame(width: 300)
+                    .frame(width: 300, height: 55)
                     .background(Color(red: 0, green: 0.6, blue: 0.67))
                     .cornerRadius(10)
                 })
-                .padding(.top, 20)
-                .padding(.bottom, 200)
                 
                 Spacer()
             }

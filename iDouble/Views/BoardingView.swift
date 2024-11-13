@@ -35,8 +35,7 @@ struct BoardingView: View {
             .font(Font.system(size: 14))
             .multilineTextAlignment(.center)
             .foregroundColor(.black)
-            .frame(width: 335, height: 69, alignment: .top)
-            .padding(.bottom, 20)
+            .frame(width: 335, height: 90, alignment: .top)
         
         HStack(alignment: .center) {
             
@@ -53,8 +52,6 @@ struct BoardingView: View {
         .bold()
         .foregroundStyle(.white)
         .font(.system(size: 24))
-        .padding(.horizontal, 20)
-        .padding(.vertical, 14)
         .frame(width: 208, height: 60, alignment: .center)
         .background(Color(red: 0, green: 0.6, blue: 0.67))
         .cornerRadius(12)
