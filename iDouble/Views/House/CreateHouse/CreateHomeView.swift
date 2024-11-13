@@ -9,12 +9,12 @@ import SwiftUI
 
 struct CreateHomeView: View {
     @State private var houseName = ""
+    @State private var showQR: Bool = false
     
     var body: some View {
         NavigationStack {
             VStack {
                 ToolbarView(title: "Create a New House", onDone: {
-                    print("tapped")
                 })
                 
                 Spacer()
@@ -31,8 +31,24 @@ struct CreateHomeView: View {
                     .foregroundStyle(.black)
                     .font(.system(size: 15))
                     .frame(width: 320, height: 40, alignment: .leading)
+                
+                NavigationLink(destination: {
                     
-
+                    KeyView()
+                    
+                }, label: {
+                    HStack {
+                        Text(Image(systemName: "key.fill"))
+                        Text("Generate Key")
+                    }
+                    .font(.system(size : 15))
+                    .bold()
+                    .foregroundColor(.white)
+                    .frame(width: 200, height: 50)
+                    .background(.blue)
+                    .cornerRadius(10)
+                })
+                
                 Spacer()
             }
             .navigationBarHidden(true)

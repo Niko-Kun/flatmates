@@ -32,7 +32,7 @@ struct CreateProfileView: View {
                     .foregroundStyle(.black)
                     .frame(width: 320, height: 70)
                 
-                Button ( action : {	
+                Button (action : {	
                     if !name.isEmpty {
                         navigateToCreateJoinHouse = true
                     }
