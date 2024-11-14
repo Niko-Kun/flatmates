@@ -22,15 +22,18 @@ struct KeyView: View {
                 
                 VStack {
                     Text("Your House Key")
+                        .foregroundStyle(.black)
                     
                     Divider()
                         .frame(width: 200)
                     
                     HStack {
                         Text("3568")
+                            .foregroundStyle(.black)
                             .frame(width: 150, height: 60)
                             .font(.system(size: 55))
                         Text(Image(systemName: "document.on.document.fill"))
+                            .foregroundStyle(.black)
                             .font(.system(size: 18))
                     }
                     .padding(.top)
@@ -45,6 +48,7 @@ struct KeyView: View {
                         .background(.blue)
                         .foregroundStyle(.white)
                         .cornerRadius(10)
+                        .font(.system(size: 15))
                         
                         NavigationLink(destination: {
                             
@@ -54,7 +58,7 @@ struct KeyView: View {
                             HStack {
                                 Text(Image(systemName: "qrcode"))
                             }
-                            .font(.system(size : 25))
+                            .font(.system(size : 15))
                             .foregroundColor(.white)
                             .frame(width: 50, height: 50)
                             .background(.blue)

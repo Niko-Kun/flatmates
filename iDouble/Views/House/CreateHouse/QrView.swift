@@ -34,6 +34,7 @@ struct QrView: View {
                     Text("Create Your House")
                 }
                 .frame(width: 240, height: 50)
+                .font(.system(size: 15))
                 .background(.blue)
                 .foregroundStyle(.white)
                 .cornerRadius(10)
