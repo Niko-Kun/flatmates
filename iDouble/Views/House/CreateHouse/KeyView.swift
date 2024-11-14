@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct KeyView: View {
+    
+    @State private var houseCode : String = "3568"
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -28,13 +31,18 @@ struct KeyView: View {
                         .frame(width: 200)
                     
                     HStack {
-                        Text("3568")
+                        Text("\(houseCode)")
                             .foregroundStyle(.black)
                             .frame(width: 150, height: 60)
                             .font(.system(size: 55))
-                        Text(Image(systemName: "document.on.document.fill"))
-                            .foregroundStyle(.black)
-                            .font(.system(size: 18))
+                        Button(action:  {
+                            UIPasteboard.general.string = houseCode
+                            print("House code copied: \(houseCode)")
+                        }) {
+                            Text(Image(systemName: "document.on.document.fill"))
+                                .foregroundStyle(.black)
+                                .font(.system(size: 18))
+                        }
                     }
                     .padding(.top)
                     
