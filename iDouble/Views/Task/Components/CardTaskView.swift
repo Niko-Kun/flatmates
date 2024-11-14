@@ -9,8 +9,7 @@ import SwiftUI
 
 struct CardTaskView: View {
     
-    var task : Task = Task()
-    
+    var task = Task(title: "Wash Dishes", statusTask: StatusTask.completed, date: "Yesterday", description: "Write a description of the task" )
     
     var iconStatus : String {
         switch task.statusTask {
@@ -93,10 +92,9 @@ struct CardTaskView: View {
         .background( Color("ColorCardTask"))
         .cornerRadius(20)
         .shadow(color: .gray.opacity(0.2), radius: 0)
-        .padding(.horizontal, 20)
     }
 }
 
 #Preview {
-    CardTaskView( task: Task())
+    CardTaskView( )
 }

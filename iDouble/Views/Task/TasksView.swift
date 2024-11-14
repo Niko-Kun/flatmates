@@ -51,14 +51,13 @@ struct TasksView: View {
                               
                           }.listRowSeparator(.hidden)
                           
-                      }
-                      .padding(0)
-                      .listRowInsets(EdgeInsets())
+                      }.listStyle(PlainListStyle())
                 }
                 
                 Spacer()
             }
-        }
+            
+        }.background(.white)
         
     }
     
