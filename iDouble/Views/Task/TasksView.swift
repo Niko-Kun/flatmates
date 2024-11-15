@@ -13,27 +13,44 @@ struct TasksView: View {
 
         case all = "All"
         case todo = "To-Do"
-        case inProgress = "In-Progress"
+        case Recursive = "Recursive"
         case done = "Done"
             
         var id: Self { self }
     }
+    
+    
     @State private var selectedStatusTask: ListFilter = .all
+    @State private var showModalCreateTask: Bool = false
+    @State private var showModalDetailTask: Bool = false
     
     //system
+    var filteredTasks: [Task] {
+        switch selectedStatusTask {
+        case .all:
+            return tasksVM.ListTasks
+        case .todo:
+            return tasksVM.ListTasks.filter { $0.statusTask == StatusTask.todo }
+        case .Recursive:
+            return tasksVM.ListTasks.filter { $0.statusTask == StatusTask.recursive }
+        case .done:
+            return tasksVM.ListTasks.filter { $0.statusTask == StatusTask.completed }
+        }
+    }
     
     //Data
     var tasksVM = TasksViewModel()
-    
+    @State private var selectedTask: Task = Task(title: "Example", statusTask: StatusTask.todo, date: "Yesterday", description: "None")
+
     //MAIN VIEW
     var body: some View {
         ZStack{
             
             Color(.white).ignoresSafeArea()
             
-            VStack{
+            VStack(spacing:4){
                 title
-                selector.padding(.horizontal, 16)
+                selector.padding(.horizontal, 20)
                 
                 if( self.tasksVM.ListTasks.isEmpty ){
                     
@@ -47,6 +64,9 @@ struct TasksView: View {
                 
                 Spacer()
             }
+            .sheet(isPresented: $showModalCreateTask, content: {
+                CreateTaskModal( add: {}, showModal: $showModalCreateTask)
+            })
             
         }.background(.white)
         
@@ -57,16 +77,19 @@ struct TasksView: View {
     var title : some View{
         HStack{
             Text("Tasks")
-                .font(.system(size: 40))
+                .font(.system(size: 30))
                 .fontWeight(.bold)
                 .padding(.horizontal)
             
             Spacer()
             
-            Image(systemName: "plus")
-                .resizable()
-                .frame(width: 20, height: 20)
-                .padding(.horizontal,16)
+            Button(action : addTask ){
+                Image(systemName: "plus")
+                    .resizable()
+                    .frame(width: 20, height: 20)
+                    .padding(.horizontal,16)
+            }
+            
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         
@@ -79,30 +102,46 @@ struct TasksView: View {
                     Text(filter.rawValue.capitalized)
                 }
             }
-            .colorMultiply( .main)
+            .colorMultiply( Color("LightMainColor"))
+            .background(.background).cornerRadius(8)
             .pickerStyle(.segmented)
         }
     }
     
-    var listTask: some View{
-        List{
-            ForEach( self.tasksVM.ListTasks ) { task in
-               
-                CardTaskView(onClick:  {}, task: task)
-                
-            }.onDelete{
-                indexes in for index in indexes {
-                    deleteTask(item : index)
+    var listTask: some View {
+        List {
+            ForEach(filteredTasks) { task in
+                CardTaskView(task: task)
+                    .onTapGesture {
+                        showDetailTask(taskToShow: task)
+                    }
+            }
+            .onDelete { indexes in
+                for index in indexes {
+                    deleteTask(item: index)
                 }
-                
-            }.listRowSeparator(.hidden)
-            
-        }.listStyle(PlainListStyle())
+            }
+            .listRowSeparator(.hidden)
+        }
+        .listStyle(PlainListStyle())
+        .sheet(isPresented: $showModalDetailTask) {
+            DetailTaskView(task: $selectedTask, add: {}, showModal: $showModalDetailTask)
+        }
     }
     
     //Function
     func deleteTask( item : Int){
         self.tasksVM.ListTasks.remove( at : item)
+    }
+    
+    func addTask(){
+        showModalCreateTask.toggle()
+    }
+    
+    func showDetailTask(taskToShow : Task){
+        print(taskToShow.title);
+        selectedTask = taskToShow
+        showModalDetailTask.toggle()
     }
 }
 

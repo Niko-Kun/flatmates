@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct CardTaskView: View {
-    var onClick : () -> Void
     
     
     var task = Task(title: "Wash Dishes", statusTask: StatusTask.recursive, date: "Yesterday", description: "Write a description of the task" )
@@ -40,13 +39,17 @@ struct CardTaskView: View {
             HStack{
                 if( task.statusTask == .recursive){
                     HStack{
-                        Image(systemName: "repeat")
+                        Image(systemName: "repeat").resizable()
+                            .frame(width: 15, height: 15)
                         Text("everyday")
+                            .font(.system(size: 15))
                     }.padding(.top, 5)
                 }else{
                     HStack{
-                        Image(systemName: "calendar")
+                        Image(systemName: "calendar").resizable()
+                            .frame(width: 15, height: 15)
                         Text(task.date)
+                            .font(.system(size: 15))
                     }
                     
                 }
@@ -61,14 +64,14 @@ struct CardTaskView: View {
             }
             HStack{
                 Text(task.title)
-                    .font(.system(size: 25))
+                    .font(.system(size: 20))
                     .fontWeight(.semibold)
                 Spacer()
             }.padding(.top, 5)
             
             HStack{
                 Text(task.description)
-                    .font(.system(size: 14))
+                    .font(.system(size: 13))
                     .fontWeight(.light)
                     .foregroundStyle(.gray)
                 Spacer()
@@ -103,9 +106,10 @@ struct CardTaskView: View {
         .background( Color("ColorCardTask"))
         .cornerRadius(20)
         .shadow(color: .gray.opacity(0.2), radius: 0)
+        
     }
 }
 
 #Preview {
-    CardTaskView( onClick: {})
+    CardTaskView( )
 }
