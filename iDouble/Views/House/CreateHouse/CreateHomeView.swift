@@ -48,8 +48,7 @@ struct CreateHomeView: View {
                     }
                 }) {
                     HStack {
-                        Text(Image(systemName: "key.fill"))
-                        Text("Generate Key")
+                        Text("Continue")
                     }
                     .font(.system(size : 15))
                     .bold()

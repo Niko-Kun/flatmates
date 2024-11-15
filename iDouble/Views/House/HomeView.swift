@@ -13,7 +13,7 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Text("\(houseName)")
+                Text(houseName)
                     .bold()
                     .foregroundStyle(.black)
                     .font(.system(size: 35))

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct KeyView: View {
     
-    var houseName : String 
+    var houseName : String
     var code : Int = 0
     var houseCode : String = ""
     
@@ -35,7 +35,7 @@ struct KeyView: View {
                     label: { EmptyView() }
                 )
                 
-                Text( houseName )
+                Text(houseName)
                     .foregroundStyle(.blue)
                     .bold()
                 
@@ -76,7 +76,7 @@ struct KeyView: View {
                         
                         NavigationLink(destination: {
                             
-                            QrView()
+                            QrView(houseName: houseName)
                             
                         }, label: {
                             HStack {

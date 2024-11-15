@@ -14,13 +14,7 @@ struct JoinHomeView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                ToolbarView(title: "Join an House", onDone: { navigateToHome = true })
-                
-                NavigationLink(
-                    destination: HomeView(houseName: ""),
-                    isActive: $navigateToHome,
-                    label: { EmptyView() }
-                )
+                ToolbarView(title: "Join an House")
                 
                 Rectangle()
                     .foregroundColor(.clear)
