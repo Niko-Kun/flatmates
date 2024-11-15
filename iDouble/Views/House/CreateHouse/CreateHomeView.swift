@@ -20,7 +20,7 @@ struct CreateHomeView: View {
                 Spacer()
                 
                 NavigationLink(
-                    destination: HomeView(houseName: .constant("")),
+                    destination: HomeView(houseName: $houseName),
                     isActive: $navigateToHome,
                     label: { EmptyView() }
                 )
