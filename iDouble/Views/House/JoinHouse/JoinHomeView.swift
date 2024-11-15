@@ -16,13 +16,21 @@ struct JoinHomeView: View {
             VStack {
                 ToolbarView(title: "Join an House", onDone: { navigateToHome = true })
                 
-                Spacer()
-                
                 NavigationLink(
                     destination: HomeView(houseName: ""),
                     isActive: $navigateToHome,
                     label: { EmptyView() }
                 )
+                
+                Rectangle()
+                    .foregroundColor(.clear)
+                    .frame(width: 206, height: 320, alignment: .center)
+                    .background(
+                        Image("Key")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 155, height: 128)
+                    )
                 
                 Text("Insert the Key")
                     .font(.system(size: 15))

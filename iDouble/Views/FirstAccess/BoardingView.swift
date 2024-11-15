@@ -10,7 +10,7 @@ import SwiftUI
 
 struct BoardingView: View {
     @State private var nextView = false
-    //me
+    
     var body: some View {
         
         Rectangle()
@@ -20,7 +20,7 @@ struct BoardingView: View {
                 Image("boardingWelcome")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: 206, height: 225)
+                    .frame(width: 200, height: 200)
                     .clipped()
             )
         

@@ -20,7 +20,14 @@ struct CreateHomeView: View {
             VStack {
                 ToolbarView(title: "Create a New House")
                 
-                Spacer()
+                Rectangle()
+                    .foregroundColor(.clear)
+                    .frame(width: 206, height: 300)
+                    .background(
+                        Image("createHouse")
+                            .resizable()
+                            .frame(width: 155, height: 155)
+                    )
                 
                 Text("House Name")
                     .font(.system(size: 15))
