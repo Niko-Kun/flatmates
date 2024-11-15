@@ -35,23 +35,6 @@ struct CreateHomeView: View {
                     .font(.system(size: 15))
                     .frame(width: 320, height: 40, alignment: .leading)
                 
-                //                NavigationLink(destination: {
-                //
-                //                    KeyView( houseName: houseName )
-                //
-                //                }, label: {
-                //                    HStack {
-                //                        Text(Image(systemName: "key.fill"))
-                //                        Text("Generate Key")
-                //                    }
-                //                    .font(.system(size : 15))
-                //                    .bold()
-                //                    .foregroundColor(.white)
-                //                    .frame(width: 200, height: 50)
-                //                    .background(.blue)
-                //                    .cornerRadius(10)
-                //                })
-                
                 Button (action : {
                     if !houseName.isEmpty {
                         navigateToKey = true
