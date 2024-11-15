@@ -9,30 +9,33 @@ import SwiftUI
 
 struct KeyView: View {
     
-    let code : Int
-    let houseCode : String
+    var houseName : String 
+    var code : Int = 0
+    var houseCode : String = ""
     
     @State private var navigateToHome = false
     
-    init() {
+    init(houseName: String){
         self.code = Int.random(in: 1000..<9999)
         self.houseCode = "\(code)"
+        self.houseName = houseName
     }
     
+
     var body: some View {
         NavigationStack {
             VStack {
-                ToolbarView(title: "Create a New House", onDone: { navigateToHome = true })
+                ToolbarView(title: "Create a New House")
                 
                 Spacer()
                 
                 NavigationLink(
-                    destination: HomeView(houseName: .constant("")),
+                    destination: HomeView(houseName: houseName),
                     isActive: $navigateToHome,
                     label: { EmptyView() }
                 )
                 
-                Text("House Name")
+                Text( houseName )
                     .foregroundStyle(.blue)
                     .bold()
                 
@@ -48,7 +51,7 @@ struct KeyView: View {
                             .foregroundStyle(.black)
                             .frame(width: 150, height: 60)
                             .font(.system(size: 55))
-                        Button(action:  {
+                        Button(action: {
                             UIPasteboard.general.string = houseCode
                             print("House code copied: \(houseCode)")
                         }) {
@@ -102,5 +105,5 @@ struct KeyView: View {
 }
 
 #Preview {
-    KeyView()
+    KeyView( houseName : "test" )
 }

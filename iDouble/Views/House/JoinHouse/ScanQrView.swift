@@ -13,12 +13,12 @@ struct ScanQrView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                ToolbarView(title: "Join an House", onDone: { navigateToHome = true })
+                ToolbarView(title: "Join an House", onDone: { navigateToHome = true})
                 
                 Spacer()
                 
                 NavigationLink(
-                    destination: HomeView(houseName: .constant("")),
+                    destination: HomeView(houseName: ""),
                     isActive: $navigateToHome,
                     label: { EmptyView() }
                 )

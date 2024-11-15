@@ -13,15 +13,10 @@ struct QrView: View {
     
     var body: some View {
         VStack {
-            ToolbarView(title: "Create a New House", onDone: { navigateToHome = true })
+            ToolbarView(title: "Create a New House")
             
             Spacer()
             
-            NavigationLink(
-                destination: HomeView(houseName: .constant("")),
-                isActive: $navigateToHome,
-                label: { EmptyView() }
-            )
             
             Text("House Name")
                 .foregroundStyle(.blue)

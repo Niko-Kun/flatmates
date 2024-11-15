@@ -19,7 +19,7 @@ struct JoinHomeView: View {
                 Spacer()
                 
                 NavigationLink(
-                    destination: HomeView(houseName: .constant("")),
+                    destination: HomeView(houseName: ""),
                     isActive: $navigateToHome,
                     label: { EmptyView() }
                 )

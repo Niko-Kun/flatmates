@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @Binding var houseName : String
+    var houseName : String
     
     var body: some View {
         NavigationStack {
@@ -16,7 +16,7 @@ struct HomeView: View {
                 Text("\(houseName)")
                     .bold()
                     .foregroundStyle(.black)
-                    .font(.title)
+                    .font(.system(size: 35))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .frame(height: 50)
                     .padding(.horizontal)
@@ -32,5 +32,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView(houseName: .constant("ciao"))
+    HomeView(houseName: "House Name")
 }
