@@ -25,6 +25,6 @@ class Task : Identifiable {
 
 enum StatusTask : String{
     case todo = "To Do"
-    case recursive = " Recursive"
+    case recursive = " To Do"
     case completed = "Completed"
 }

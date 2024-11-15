@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct CardTaskView: View {
+    var onClick : () -> Void
     
-    var task = Task(title: "Wash Dishes", statusTask: StatusTask.completed, date: "Yesterday", description: "Write a description of the task" )
+    
+    var task = Task(title: "Wash Dishes", statusTask: StatusTask.recursive, date: "Yesterday", description: "Write a description of the task" )
     
     var iconStatus : String {
         switch task.statusTask {
@@ -36,9 +38,17 @@ struct CardTaskView: View {
             
         VStack{
             HStack{
-                HStack{
-                    Image(systemName: "calendar")
-                    Text(task.date)
+                if( task.statusTask == .recursive){
+                    HStack{
+                        Image(systemName: "repeat")
+                        Text("everyday")
+                    }.padding(.top, 5)
+                }else{
+                    HStack{
+                        Image(systemName: "calendar")
+                        Text(task.date)
+                    }
+                    
                 }
                 
                 Spacer()
@@ -63,6 +73,7 @@ struct CardTaskView: View {
                     .foregroundStyle(.gray)
                 Spacer()
             }
+            
             
             HStack{
                 Image( systemName: "person.circle.fill")
@@ -96,5 +107,5 @@ struct CardTaskView: View {
 }
 
 #Preview {
-    CardTaskView( )
+    CardTaskView( onClick: {})
 }

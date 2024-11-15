@@ -22,7 +22,8 @@ struct TasksView: View {
     var tasksVM = TasksViewModel()
     
     @State private var selectedPlanet: ListFilter = .all
-        
+    
+    
     var body: some View {
         ZStack{
             
@@ -32,7 +33,7 @@ struct TasksView: View {
             VStack{
                 title
                 selector
-                    .padding()
+                    .padding(.horizontal, 16)
                 
                 if( self.tasksVM.ListTasks.isEmpty ){
                     Text("No Task here, lets create one!")
@@ -42,7 +43,7 @@ struct TasksView: View {
                       List{
                           ForEach( self.tasksVM.ListTasks ) { task in
                              
-                              CardTaskView(task: task)
+                              CardTaskView(onClick:  {}, task: task)
                               
                           }.onDelete{
                               indexes in for index in indexes {
@@ -70,12 +71,18 @@ struct TasksView: View {
                 .font(.system(size: 40))
                 .fontWeight(.bold)
                 .padding(.horizontal)
+            
+            Spacer()
+            
+            Image(systemName: "plus")
+                .resizable()
+                .frame(width: 20, height: 20)
+                .padding(.horizontal,16)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         
-        
-        
     }
+    
     var selector: some View {
         VStack {
             Picker("Planet", selection: $selectedPlanet) {
@@ -83,6 +90,7 @@ struct TasksView: View {
                     Text(filter.rawValue.capitalized)
                 }
             }
+            .colorMultiply( .main)
             .pickerStyle(.segmented)
         }
     }
