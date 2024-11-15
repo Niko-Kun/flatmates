@@ -9,22 +9,30 @@ import SwiftUI
 
 struct JoinHomeView: View {
     @State private var text = ""
+    @State private var navigateToHome = false
     
     var body: some View {
         NavigationStack {
             VStack {
-                ToolbarView(title: "Join an House", onDone: {
-                    print("tapped")
-                })
+                ToolbarView(title: "Join an House", onDone: { navigateToHome = true })
+                
                 Spacer()
                 
+                NavigationLink(
+                    destination: HomeView(houseName: .constant("")),
+                    isActive: $navigateToHome,
+                    label: { EmptyView() }
+                )
+                
                 Text("Insert the Key")
+                    .font(.system(size: 15))
                     .frame(width: 280, height: 20, alignment: .leading)
                     .foregroundStyle(.blue)
                     .bold()
                 
                 HStack {
                     TextField("Ciao", text: $text)
+                        .font(.system(size: 15))
                         .textFieldStyle(.roundedBorder)
                         .frame(height: 50)
                     

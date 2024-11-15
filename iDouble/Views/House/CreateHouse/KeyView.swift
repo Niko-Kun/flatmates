@@ -9,15 +9,28 @@ import SwiftUI
 
 struct KeyView: View {
     
-    @State private var houseCode : String = "3568"
+    let code : Int
+    let houseCode : String
+    
+    @State private var navigateToHome = false
+    
+    init() {
+        self.code = Int.random(in: 1000..<9999)
+        self.houseCode = "\(code)"
+    }
     
     var body: some View {
         NavigationStack {
             VStack {
-                ToolbarView(title: "Create a New House", onDone: {
-                })
+                ToolbarView(title: "Create a New House", onDone: { navigateToHome = true })
                 
                 Spacer()
+                
+                NavigationLink(
+                    destination: HomeView(houseName: .constant("")),
+                    isActive: $navigateToHome,
+                    label: { EmptyView() }
+                )
                 
                 Text("House Name")
                     .foregroundStyle(.blue)
@@ -48,7 +61,7 @@ struct KeyView: View {
                     
                     HStack {
                         Button(action: {
-                            print("si")
+                            navigateToHome = true
                         }) {
                             Text("Create Your House")
                         }

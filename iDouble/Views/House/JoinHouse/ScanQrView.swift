@@ -8,14 +8,20 @@
 import SwiftUI
 
 struct ScanQrView: View {
+    @State private var navigateToHome = false
+    
     var body: some View {
         NavigationStack {
             VStack {
-                ToolbarView(title: "Join an House", onDone: {
-                    print("tapped")
-                })
+                ToolbarView(title: "Join an House", onDone: { navigateToHome = true })
                 
                 Spacer()
+                
+                NavigationLink(
+                    destination: HomeView(houseName: .constant("")),
+                    isActive: $navigateToHome,
+                    label: { EmptyView() }
+                )
                 
                 Image("Crosshair")
                 

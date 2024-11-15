@@ -15,7 +15,7 @@ struct ToolbarView: View {
     
     var dimBackButtom : CGFloat = 70
     
-    var onDone: (() -> Void)?
+    var onDone: (() -> Void)? = nil
     
     var body: some View {
         VStack {
@@ -48,8 +48,8 @@ struct ToolbarView: View {
             
             Spacer()
             
-            if let onDone = onDone {
-                Button(action: onDone) {
+            if onDone != nil {
+                Button(action: onDone ?? {}) {
                     Text("Done")
                         .font(.system(size: 18))
                         .foregroundStyle(.blue)

@@ -10,14 +10,20 @@ import SwiftUI
 struct CreateHomeView: View {
     @State private var houseName = ""
     @State private var showQR: Bool = false
+    @State private var navigateToHome = false
     
     var body: some View {
         NavigationStack {
             VStack {
-                ToolbarView(title: "Create a New House", onDone: {
-                })
+                ToolbarView(title: "Create a New House", onDone: { navigateToHome = true })
                 
                 Spacer()
+                
+                NavigationLink(
+                    destination: HomeView(houseName: .constant("")),
+                    isActive: $navigateToHome,
+                    label: { EmptyView() }
+                )
                 
                 Text("House Name")
                     .font(.system(size: 15))
