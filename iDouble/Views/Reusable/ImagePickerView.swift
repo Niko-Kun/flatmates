@@ -23,9 +23,10 @@ struct ImagePickerView: View {
                         .frame(width: 200, height: 200)
                         .clipShape(Circle())
                 } else {
-                        Circle()
-                            .frame(width: 200, height: 200)
-                            .foregroundStyle(.gray)
+                    Image("imgPicker")
+                        .resizable()
+                        .frame(width: 200, height: 200)
+                        
                 }
             }
             .sheet(isPresented: $isPickerPresented) {

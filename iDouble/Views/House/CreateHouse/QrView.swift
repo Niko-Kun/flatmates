@@ -9,55 +9,59 @@ import SwiftUI
 
 struct QrView: View {
     
+    var houseName : String
+    
     @State private var navigateToHome = false
     
+    init(houseName: String) {
+        self.houseName = houseName
+    }
+    
     var body: some View {
-        VStack {
-            ToolbarView(title: "Create a New House", onDone: { navigateToHome = true })
-            
-            Spacer()
-            
-            NavigationLink(
-                destination: HomeView(houseName: .constant("")),
-                isActive: $navigateToHome,
-                label: { EmptyView() }
-            )
-            
-            Text("House Name")
-                .foregroundStyle(.blue)
-                .bold()
-            
+        NavigationStack {
             VStack {
+                ToolbarView(title: "Create a New House")
                 
-                Image("HouseQrCode")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 230, height: 230)
-                    .background(.white)
+                Spacer()
+                
+                Text(houseName)
+                    .foregroundStyle(.blue)
+                    .bold()
+                
+                VStack {
+                    
+                    Image("HouseQrCode")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 230, height: 230)
+                        .background(.white)
+                        .cornerRadius(10)
+                    
+                    Button(action: {
+                        navigateToHome = true
+                    }) {
+                        Text("Create Your House")
+                    }
+                    .frame(width: 240, height: 50)
+                    .font(.system(size: 15))
+                    .background(.blue)
+                    .foregroundStyle(.white)
                     .cornerRadius(10)
+                    .padding(.top)
+                    
+                }.frame(width: 300, height: 400)
+                    .background(Color(.systemGray6))
+                    .cornerRadius(50)
                 
-                Button(action: {
-                    navigateToHome = true
-                }) {
-                    Text("Create Your House")
-                }
-                .frame(width: 240, height: 50)
-                .font(.system(size: 15))
-                .background(.blue)
-                .foregroundStyle(.white)
-                .cornerRadius(10)
-                .padding(.top)
-                
-            }.frame(width: 300, height: 400)
-                .background(Color(.systemGray6))
-                .cornerRadius(50)
+                Spacer()
+            }
+            .navigationBarHidden(true)
             
-            Spacer()
+            NavigationLink(destination: HomeView(houseName: houseName), isActive: $navigateToHome){ EmptyView()}
         }
-        .navigationBarHidden(true)
     }
 }
 
 #Preview {
-    QrView()
+    QrView(houseName: "test")
 }
