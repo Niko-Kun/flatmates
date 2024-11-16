@@ -56,13 +56,7 @@ struct DetailTaskView: View {
     }
 }
 
-#Preview {
-    DetailTaskView(
-        task: .constant(Task(title: "Wash Dishes", statusTask: .recursive, date: "Yesterday", description: "Write a description of the task")),
-        add: {},
-        showModal: .constant(true)
-    )
-}
+
 
 #Preview {
     DetailTaskView(
