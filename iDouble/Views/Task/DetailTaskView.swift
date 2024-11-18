@@ -42,14 +42,15 @@ struct DetailTaskView: View {
                     }
                     
                     Section {
-                        DatePicker("Starts", selection: $date, displayedComponents: .date)
+                        DatePicker("End", selection: $date, displayedComponents: .date)
+                            .disabled(true)
                         
                         Picker("Repeat", selection: $selectedRepeat) {
                             ForEach(repeats, id: \.self) { repeats in
                                 Text(repeats)
                             }
                         }
-                        .pickerStyle(.menu)
+                        .disabled(true)
                     }
                     
                     Picker("Assigned to", selection: $selectedAssigned) {
@@ -57,7 +58,7 @@ struct DetailTaskView: View {
                             Text(assigned)
                         }
                     }
-                    .pickerStyle(.menu)
+                    .disabled(true)
                 }
                 .scrollContentBackground(.hidden)
             }

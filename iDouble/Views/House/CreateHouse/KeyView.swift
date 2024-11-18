@@ -66,7 +66,7 @@ struct KeyView: View {
                         Button(action: {
                             navigateToHome = true
                         }) {
-                            Text("Create Your House")
+                            Text("Enter in your House")
                         }
                         .frame(width: 160, height: 50)
                         .background(.blue)

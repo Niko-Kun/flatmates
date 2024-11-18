@@ -45,7 +45,6 @@ struct TasksView: View {
     //MAIN VIEW
     var body: some View {
         ZStack{
-            
             Color(.white).ignoresSafeArea()
             
             VStack(spacing:4){
@@ -58,14 +57,14 @@ struct TasksView: View {
                       .padding(.top, 20)
                       .foregroundStyle( Color.gray)
                     
-                }else{
+                } else {
                       listTask
                 }
                 
                 Spacer()
             }
             .sheet(isPresented: $showModalCreateTask, content: {
-                CreateTaskModal( add: {}, showModal: $showModalCreateTask)
+                CreateTaskModal( add: {task in }, showModal: $showModalCreateTask)
             })
             
         }.background(.white)
@@ -74,7 +73,7 @@ struct TasksView: View {
     
     
     //View
-    var title : some View{
+    var title : some View {
         HStack{
             Text("Tasks")
                 .font(.system(size: 30))
