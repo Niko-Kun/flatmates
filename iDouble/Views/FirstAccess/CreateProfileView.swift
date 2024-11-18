@@ -18,17 +18,12 @@ struct CreateProfileView: View {
             VStack {
                 ImagePickerView()
                 
-                Text("Insert an Image")
-                    .font(.system(size: 15))
-                    .bold()
-                    .foregroundColor(.black)
-                    .frame(width: 150, height: 30, alignment: .center)
-                
                 TextField("Write your Name", text: $name)
                     .font(.system(size: 15))
                     .textFieldStyle(.roundedBorder)
                     .foregroundStyle(.black)
                     .frame(width: 320, height: 70)
+                    .padding(.top, 50)
                 
                 Button (action : {	
                     if !name.isEmpty {
@@ -42,9 +37,10 @@ struct CreateProfileView: View {
                         .background( Color( name.isEmpty ? unSelectedColor :  mainColor))
                         .cornerRadius(10)
                 }
-                
                 NavigationLink(destination: CreateJoinHouseView(), isActive: $navigateToCreateJoinHouse){ EmptyView()}
             }
+            .frame(height: 300)
+            .padding(.bottom, 120)
         }
     }
 }
