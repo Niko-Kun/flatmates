@@ -10,6 +10,8 @@ import SwiftUI
 struct HomeView: View {
     var houseName : String
     
+    let mainColor : Color = Color(red: 0, green: 0.6, blue: 0.67)
+    
     var body: some View {
         NavigationStack {
             VStack {

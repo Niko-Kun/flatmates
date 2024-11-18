@@ -10,8 +10,9 @@ import SwiftUI
 @main
 struct iDoubleApp: App {
     init() {
-            UIView.appearance().overrideUserInterfaceStyle = .light
-        }
+        UIView.appearance().overrideUserInterfaceStyle = .light
+    }
+
     
     var body: some Scene {
         WindowGroup {

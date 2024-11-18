@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CreateProfileView: View {
     @State var name : String = ""
-    var mainColor : Color  = .blue
+    let mainColor : Color = Color(red: 0, green: 0.6, blue: 0.67)
     var unSelectedColor : Color  = .gray
     @State private var navigateToCreateJoinHouse: Bool = false
     
@@ -34,7 +34,7 @@ struct CreateProfileView: View {
                         .font(.system(size: 18))
                         .foregroundColor(.white)
                         .frame(width: 150, height: 50)
-                        .background( Color( name.isEmpty ? unSelectedColor :  mainColor))
+                        .background(Color( name.isEmpty ? unSelectedColor :  mainColor))
                         .cornerRadius(10)
                 }
                 NavigationLink(destination: CreateJoinHouseView(), isActive: $navigateToCreateJoinHouse){ EmptyView()}

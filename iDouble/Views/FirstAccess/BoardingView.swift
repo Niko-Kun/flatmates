@@ -12,6 +12,8 @@ struct BoardingView: View {
     @State private var nextView = false
     @State private var navigateToCreateProfile: Bool = false
     
+    let mainColor : Color = Color(red: 0, green: 0.6, blue: 0.67)
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -51,7 +53,7 @@ struct BoardingView: View {
                     .font(.system(size : 24))
                     .foregroundColor(.white)
                     .frame(width: 208, height: 60, alignment: .center)
-                    .background(.blue)
+                    .background(mainColor)
                     .cornerRadius(12)
                 })
             }

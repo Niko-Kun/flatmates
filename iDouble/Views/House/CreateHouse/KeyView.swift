@@ -15,13 +15,14 @@ struct KeyView: View {
     
     @State private var navigateToHome = false
     
+    let mainColor : Color = Color(red: 0, green: 0.6, blue: 0.67)
+    
     init(houseName: String){
         self.code = Int.random(in: 1000..<9999)
         self.houseCode = "\(code)"
         self.houseName = houseName
     }
     
-
     var body: some View {
         NavigationStack {
             VStack {
@@ -36,7 +37,7 @@ struct KeyView: View {
                 )
                 
                 Text(houseName)
-                    .foregroundStyle(.blue)
+                    .foregroundStyle(mainColor)
                     .bold()
                 
                 VStack {
@@ -69,7 +70,7 @@ struct KeyView: View {
                             Text("Enter in your House")
                         }
                         .frame(width: 160, height: 50)
-                        .background(.blue)
+                        .background(mainColor)
                         .foregroundStyle(.white)
                         .cornerRadius(10)
                         .font(.system(size: 15))
@@ -85,7 +86,7 @@ struct KeyView: View {
                             .font(.system(size : 15))
                             .foregroundColor(.white)
                             .frame(width: 50, height: 50)
-                            .background(.blue)
+                            .background(mainColor)
                             .cornerRadius(10)
                         })
                         

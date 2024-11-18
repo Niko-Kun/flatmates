@@ -13,6 +13,8 @@ struct QrView: View {
     
     @State private var navigateToHome = false
     
+    let mainColor : Color = Color(red: 0, green: 0.6, blue: 0.67)
+    
     init(houseName: String) {
         self.houseName = houseName
     }
@@ -25,7 +27,7 @@ struct QrView: View {
                 Spacer()
                 
                 Text(houseName)
-                    .foregroundStyle(.blue)
+                    .foregroundStyle(mainColor)
                     .bold()
                 
                 VStack {
@@ -44,7 +46,7 @@ struct QrView: View {
                     }
                     .frame(width: 240, height: 50)
                     .font(.system(size: 15))
-                    .background(.blue)
+                    .background(mainColor)
                     .foregroundStyle(.white)
                     .cornerRadius(10)
                     .padding(.top)

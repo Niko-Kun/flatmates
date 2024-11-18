@@ -11,7 +11,8 @@ struct ToolbarView: View {
     @Environment(\.presentationMode) var presentationMode
     
     var title : String
-    var color : Color = .black
+    
+    let mainColor : Color = Color(red: 0, green: 0.6, blue: 0.67)
     
     var dimBackButtom : CGFloat = 70
     
@@ -35,7 +36,7 @@ struct ToolbarView: View {
                         .font(.system(size: 18))
                 }
                 .frame(maxWidth: dimBackButtom)
-                .foregroundStyle(.blue)
+                .foregroundStyle(mainColor)
             }
             
             Spacer()
@@ -43,7 +44,7 @@ struct ToolbarView: View {
             Text("\(title)")
                 .bold()
                 .font(.system(size: 18))
-                .foregroundStyle(color)
+                .foregroundStyle(.black)
                 .frame(maxWidth: .infinity)
             
             Spacer()
@@ -52,7 +53,7 @@ struct ToolbarView: View {
                 Button(action: onDone ?? {}) {
                     Text("Done")
                         .font(.system(size: 18))
-                        .foregroundStyle(.blue)
+                        .foregroundStyle(mainColor)
                 }
                 .frame(maxWidth: dimBackButtom)
             } else {
@@ -60,7 +61,7 @@ struct ToolbarView: View {
                     .frame(maxWidth: dimBackButtom) // Larghezza del pulsante "Back" per bilanciare
             }
         }
-        .padding( .horizontal, 10)
+        .padding(.horizontal, 10)
         
     }
 }

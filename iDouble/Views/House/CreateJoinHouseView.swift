@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct CreateJoinHouseView: View {
+    
+    let mainColor : Color = Color(red: 0, green: 0.6, blue: 0.67)
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -35,7 +38,7 @@ struct CreateJoinHouseView: View {
                     .bold()
                     .foregroundColor(.white)
                     .frame(width: 300, height: 55)
-                    .background(Color(red: 0, green: 0.6, blue: 0.67))
+                    .background(mainColor)
                     .cornerRadius(10)
                 })
                 
@@ -52,7 +55,7 @@ struct CreateJoinHouseView: View {
                     .bold()
                     .foregroundColor(.white)
                     .frame(width: 300, height: 55)
-                    .background(Color(red: 0, green: 0.6, blue: 0.67))
+                    .background(mainColor)
                     .cornerRadius(10)
                 })
                 

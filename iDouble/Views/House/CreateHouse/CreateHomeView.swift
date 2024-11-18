@@ -12,7 +12,7 @@ struct CreateHomeView: View {
     @State private var showQR: Bool = false
     @State private var navigateToKey: Bool = false
     
-    var mainColor : Color  = .blue
+    let mainColor : Color = Color(red: 0, green: 0.6, blue: 0.67)
     var unSelectedColor : Color  = .gray
     
     var body: some View {
@@ -33,7 +33,7 @@ struct CreateHomeView: View {
                     .font(.system(size: 15))
                     .bold()
                     .frame(width: 320, height: 20, alignment: .leading)
-                    .foregroundStyle(.blue)
+                    .foregroundStyle(mainColor)
                 
                 TextField("Insert the Name", text: $houseName)
                     .background(Color(.systemGray6))
