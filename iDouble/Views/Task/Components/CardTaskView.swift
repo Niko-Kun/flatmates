@@ -14,22 +14,26 @@ struct CardTaskView: View {
     
     var iconStatus : String {
         switch task.statusTask {
-        case StatusTask.completed:
+        case StatusTask.completed.rawValue:
             return "checkmark.circle.fill"
-        case StatusTask.todo:
+        case StatusTask.todo.rawValue:
             return "checkmark.circle"
-        case StatusTask.recursive:
+        case StatusTask.recursive.rawValue:
+            return "checkmark.circle"
+        default:
             return "checkmark.circle"
         }
     }
     var taskColor: Color {
         switch task.statusTask {
-        case StatusTask.completed:
+        case StatusTask.completed.rawValue:
             return Color("Completed")
-        case StatusTask.todo:
+        case StatusTask.todo.rawValue:
             return Color("To_Do")
-        case StatusTask.recursive:
+        case StatusTask.recursive.rawValue:
             return Color("Recursive")
+        default:
+            return Color("To_Do")
         }
     }
     
@@ -37,7 +41,7 @@ struct CardTaskView: View {
             
         VStack{
             HStack{
-                if( task.statusTask == .recursive){
+                if( task.statusTask == StatusTask.recursive.rawValue ){
                     HStack{
                         Image(systemName: "repeat").resizable()
                             .frame(width: 15, height: 15)
@@ -48,7 +52,7 @@ struct CardTaskView: View {
                     HStack{
                         Image(systemName: "calendar").resizable()
                             .frame(width: 15, height: 15)
-                        Text(task.date)
+                        Text(task.getData())
                             .font(.system(size: 15))
                     }
                     
@@ -70,7 +74,7 @@ struct CardTaskView: View {
             }.padding(.top, 5)
             
             HStack{
-                Text(task.description)
+                Text(task.descriptionTask)
                     .font(.system(size: 13))
                     .fontWeight(.light)
                     .foregroundStyle(.gray)
@@ -85,7 +89,7 @@ struct CardTaskView: View {
                     .foregroundStyle(.gray)
                 Spacer()
                 
-                Text(task.statusTask.rawValue)
+                Text(task.statusTask)
                     .fontWeight(.medium)
                     .padding( .horizontal,17 )
                     .padding( .vertical, 6 )

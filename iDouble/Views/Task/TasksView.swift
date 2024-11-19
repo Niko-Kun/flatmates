@@ -6,19 +6,23 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct TasksView: View {
     //View
     enum ListFilter: String, CaseIterable, Identifiable {
-
+        
         case all = "All"
         case todo = "To-Do"
         case Recursive = "Recursive"
         case done = "Done"
-            
+        
         var id: Self { self }
     }
     
+    @Query private var listTaskData : [Task]
+    
+    @Environment(\.modelContext) var context
     
     @State private var selectedStatusTask: ListFilter = .all
     @State private var showModalCreateTask: Bool = false
@@ -28,13 +32,13 @@ struct TasksView: View {
     var filteredTasks: [Task] {
         switch selectedStatusTask {
         case .all:
-            return tasksVM.ListTasks
+            return listTaskData
         case .todo:
-            return tasksVM.ListTasks.filter { $0.statusTask == StatusTask.todo }
+            return listTaskData.filter { $0.statusTask == StatusTask.todo.rawValue }
         case .Recursive:
-            return tasksVM.ListTasks.filter { $0.statusTask == StatusTask.recursive }
+            return listTaskData.filter { $0.statusTask == StatusTask.recursive.rawValue }
         case .done:
-            return tasksVM.ListTasks.filter { $0.statusTask == StatusTask.completed }
+            return listTaskData.filter { $0.statusTask == StatusTask.completed.rawValue }
         }
     }
     
@@ -51,7 +55,7 @@ struct TasksView: View {
                 title
                 selector.padding(.horizontal, 20)
                 
-                if( self.tasksVM.ListTasks.isEmpty ){
+                if( listTaskData.isEmpty ){
                     
                     Text("No Task here, lets create one!")
                       .padding(.top, 20)
@@ -64,7 +68,7 @@ struct TasksView: View {
                 Spacer()
             }
             .sheet(isPresented: $showModalCreateTask, content: {
-                CreateTaskModal( add: {task in }, showModal: $showModalCreateTask)
+                CreateTaskModal( add: AddTask, showModal: $showModalCreateTask)
             })
             
         }.background(.white)
@@ -129,6 +133,10 @@ struct TasksView: View {
     }
     
     //Function
+    func AddTask (task : Task){
+        print("Saving " + task.title)
+        context.insert(task)
+    }
     func deleteTask( item : Int){
         self.tasksVM.ListTasks.remove( at : item)
     }

@@ -6,20 +6,26 @@
 //
 
 import Foundation
+import SwiftData
 
+@Model
 class Task : Identifiable {
     
     var id: UUID = UUID()
     var title : String = "No Title"
-    var statusTask : StatusTask = StatusTask.todo
+    var statusTask : String = StatusTask.todo.rawValue
     var date : String = "Yesterday"
-    var description : String = "description of your task"
+    var descriptionTask : String = "description of your task"
     
     init(title: String, statusTask: StatusTask, date: String, description: String){
         self.title = title
-        self.statusTask = statusTask
+        self.statusTask = statusTask.rawValue
         self.date = date
-        self.description = description  
+        self.descriptionTask = description
+    }
+    
+    func getData() -> String{
+        return DateManager.convertFromTimestamp_dd_mm(timestamp: self.date)
     }
 }
 

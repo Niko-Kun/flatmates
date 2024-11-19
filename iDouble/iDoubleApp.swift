@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct iDoubleApp: App {
@@ -17,6 +18,6 @@ struct iDoubleApp: App {
     var body: some Scene {
         WindowGroup {
             BoardingView()
-        }
+        }.modelContainer( for : Task.self )
     }
 }

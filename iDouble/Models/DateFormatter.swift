@@ -33,4 +33,11 @@ class DateManager {
         
         return String(timestampSec)
     }
+    
+    static func convertFromTimestamp_dd_mm(timestamp : String) -> String {
+        guard let timestampSec = Int(timestamp) else { return "" }
+        let date = Date(timeIntervalSince1970: TimeInterval(timestampSec))
+        
+        return formatter_dd_mm(date: date)
+    }
 }

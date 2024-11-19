@@ -72,7 +72,9 @@ struct CreateTaskModal: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Add") {
                         let newTask = Task(title: title, statusTask: StatusTask.todo, date: DateManager.getTimestamp(date: date), description: notes)
-                        add(newTask)
+                        
+                            add(newTask)
+                        
                         showModal = false
                     }
                 }
