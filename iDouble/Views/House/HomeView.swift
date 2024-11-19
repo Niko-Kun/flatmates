@@ -15,13 +15,26 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Text(houseName)
-                    .bold()
-                    .foregroundStyle(.black)
-                    .font(.system(size: 35))
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .frame(height: 50)
-                    .padding(.horizontal)
+                HStack {
+                    Text(houseName)
+                        .bold()
+                        .foregroundStyle(.black)
+                        .font(.system(size: 35))
+                        .frame(maxWidth: 340, alignment: .leading)
+                    
+                    NavigationLink(destination: {
+                        HouseSettings(houseName: houseName)
+                    }, label: {
+                        HStack {
+                            Text(Image(systemName: "house.fill"))
+                        }
+                        .font(.system(size : 20))
+                        .bold()
+                        .foregroundColor(mainColor)
+                        .frame(width: 25, alignment: .trailing)
+                        .cornerRadius(10)
+                    })
+                }
                 
                 Divider()
                 
