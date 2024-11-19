@@ -30,13 +30,6 @@ struct CreateTaskModal: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                VStack {
-                    Image("viewTask")
-                        .resizable()
-                        .frame(width: 350, height: 350)
-                        .scaledToFill()
-                        .ignoresSafeArea()
-                }.frame(height: 600, alignment: .top)
                 
                 Color.black.opacity(0.1)
                     .ignoresSafeArea()
