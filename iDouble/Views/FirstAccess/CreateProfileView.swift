@@ -16,7 +16,10 @@ struct CreateProfileView: View {
     var body: some View {
         NavigationStack {
             VStack {
+                ToolbarView(title: "Create Profile")
+                
                 ImagePickerView()
+                    .padding(.top, 100)
                 
                 TextField("Write your Name", text: $name)
                     .font(.system(size: 15))
@@ -38,8 +41,8 @@ struct CreateProfileView: View {
                         .cornerRadius(10)
                 }
                 NavigationLink(destination: CreateJoinHouseView(), isActive: $navigateToCreateJoinHouse){ EmptyView()}
-            }
-            .frame(height: 300)
+            }.navigationBarHidden(true)
+                .frame(maxHeight: .infinity, alignment: .top)
             .padding(.bottom, 120)
         }
     }

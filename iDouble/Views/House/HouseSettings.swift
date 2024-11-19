@@ -16,6 +16,8 @@ struct HouseSettings: View {
     
     var body: some View {
         VStack {
+            ToolbarView(title: "")
+            
             Text("My House")
                 .bold()
                 .frame(width: 350, alignment: .leading)
@@ -65,8 +67,6 @@ struct HouseSettings: View {
                     .padding(.horizontal)
                     .padding(.top)
                     
-                    Divider()
-                    
                     NavigationLink(destination: {
                         ShareQrView()
                     }, label: {
@@ -79,6 +79,7 @@ struct HouseSettings: View {
                         .frame(width: 300, height: 40)
                         .background(mainColor)
                         .cornerRadius(20)
+                        .padding(.top)
                     })
                 }
                 
@@ -86,6 +87,7 @@ struct HouseSettings: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
             }
+        .navigationBarHidden(true)
         }
     }
 

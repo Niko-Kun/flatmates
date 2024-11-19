@@ -122,6 +122,7 @@ struct TasksView: View {
             .onDelete { indexes in
                 for index in indexes {
                     deleteTask(item: index)
+                    RemoveTask(task: listTaskData[index])
                 }
             }
             .listRowSeparator(.hidden)
@@ -133,6 +134,9 @@ struct TasksView: View {
     }
     
     //Function
+    func RemoveTask(task : Task){
+        context.delete(task)
+    }
     func AddTask (task : Task){
         print("Saving " + task.title)
         context.insert(task)

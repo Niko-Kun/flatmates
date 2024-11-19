@@ -11,6 +11,8 @@ struct JoinHomeView: View {
     @State private var text = ""
     @State private var navigateToHome = false
     
+    let mainColor : Color = Color(red: 0, green: 0.6, blue: 0.67)
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -29,7 +31,7 @@ struct JoinHomeView: View {
                 Text("Insert the Key")
                     .font(.system(size: 15))
                     .frame(width: 280, height: 20, alignment: .leading)
-                    .foregroundStyle(.blue)
+                    .foregroundStyle(mainColor)
                     .bold()
                 
                 HStack {
@@ -49,7 +51,7 @@ struct JoinHomeView: View {
                         .font(.system(size : 15))
                         .foregroundColor(.white)
                         .frame(width: 37, height: 37)
-                        .background(.blue)
+                        .background(mainColor)
                         .cornerRadius(10)
                     })
                 }
