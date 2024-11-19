@@ -33,7 +33,7 @@ struct JoinHomeView: View {
                     .bold()
                 
                 HStack {
-                    TextField("Ciao", text: $text)
+                    TextField("Code", text: $text)
                         .font(.system(size: 15))
                         .textFieldStyle(.roundedBorder)
                         .frame(height: 50)
